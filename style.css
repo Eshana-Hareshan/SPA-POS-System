@@ -1,0 +1,25 @@
+.login-page{
+    position: relative;
+}
+.login-form {
+    min-height: calc(100vh - 50px);
+    margin-left: 50%;
+    margin-right: 250px;
+    margin-top: 150px;
+}
+.top-text{
+    text-align: center;
+    align-items: center;
+}
+.btn-primary{
+    margin:30px ;
+}
+
+.left-side{
+    position: absolute;
+    width: 40vw;
+    height: 100vh;
+    bottom: 100px;
+    left: 0;
+    background:linear-gradient(to bottom, black, blue);
+}
