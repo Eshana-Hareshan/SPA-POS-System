@@ -30,6 +30,21 @@ html, body {
     left: 0;
     background:linear-gradient(to bottom, black, blue);
 }
+#navbar{
+    display: none;
+    background:linear-gradient(to right,blue,blue);
+    z-index: 10;
+}
+.navbar-brand{
+    color: white;
+}
+
+#sidebar{
+    display: none;
+    top: 50px;
+    width: 250px;
+    background: linear-gradient(to right,lightblue,lightblue);
+}
 
 #customer_content{
     display: none;

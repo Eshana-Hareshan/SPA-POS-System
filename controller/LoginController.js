@@ -13,6 +13,8 @@ submitButton.addEventListener('click', function (e) {
 
             $('#login-page').hide();
             $('#customer_content').show();
+            $('#navbar').show();
+            $('#sidebar').show();
 
         } else {
             alert("Password incorrect");
