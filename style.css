@@ -30,21 +30,81 @@ html, body {
     left: 0;
     background:linear-gradient(to bottom, black, blue);
 }
+.content {
+    min-height: calc(100vh - 50px);
+    margin-left: 250px;
+    margin-top: 50px;
+}
+
+#sidebar {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 50px);
+    background: lightblue;
+    transition: 0.3s ease;
+}
+body.sidebar-open #sidebar {
+    display: block;
+}
+
+.content {
+    margin-left: 0;
+    transition: 0.3s ease;
+}
+
+body.sidebar-open .content {
+    margin-left: 250px;
+}
+
 #navbar{
     display: none;
+    height: 50px;
+    align-items: center;
     background:linear-gradient(to right,blue,blue);
     z-index: 10;
+}
+
+#navbar.active {
+    background: linear-gradient(to right, blue, purple);
+}
+.navbar-toggler{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    padding: 10px;
+
+}
+.bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    display: block;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
 }
 .navbar-brand{
     color: white;
 }
 
-#sidebar{
-    display: none;
-    top: 50px;
-    width: 250px;
-    background: linear-gradient(to right,lightblue,lightblue);
+.navbar-toggler.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
 }
+
+.navbar-toggler.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 
 #customer_content{
     display: none;
@@ -52,3 +112,4 @@ html, body {
     width: 100vw;
     height: 100vh;
 }
+

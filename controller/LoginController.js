@@ -6,7 +6,7 @@ submitButton.addEventListener('click', function (e) {
     e.preventDefault();
 
     const UserName = "Eshana";
-    const Password = "123";
+    const Password = "1";
 
     if (userName.value === UserName) {
         if (password.value === Password) {
@@ -14,7 +14,6 @@ submitButton.addEventListener('click', function (e) {
             $('#login-page').hide();
             $('#customer_content').show();
             $('#navbar').show();
-            $('#sidebar').show();
 
         } else {
             alert("Password incorrect");
