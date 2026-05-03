@@ -1,3 +1,4 @@
+// Customer Save
 document.getElementById('save_customer_btn').addEventListener('click', function () {
 
     const id = document.getElementById('cust_id').value;
@@ -26,3 +27,10 @@ document.getElementById('save_customer_btn').addEventListener('click', function 
     document.getElementById('cust_address').value = '';
     document.getElementById('cust_contact').value = '';
 });
+
+// Customer Details Reset
+// document.getElementById('reset_customer_btn').addEventListener('click', function () {
+//
+// // const cleanCustomerForm = () => {
+// //     $('#reset_customer_btn').click();
+// // }
