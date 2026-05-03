@@ -2,8 +2,7 @@ let userName = document.getElementById('user-name');
 let password = document.getElementById('user-password');
 let submitButton = document.getElementById('submit-btn');
 
-submitButton.addEventListener('click', function (e) {
-    e.preventDefault();
+submitButton.addEventListener('click', function () {
 
     const UserName = "Eshana";
     const Password = "1";

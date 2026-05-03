@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/lib/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/lib/normalize.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
@@ -30,7 +31,7 @@
         <label for="user-password" class="form-label">Password</label>
         <input type="password" id="user-password" class="form-control" aria-describedby="passwordHelpBlock">
         <div class="d-grid gap-2">
-            <button id="submit-btn" class="btn btn-primary" type="submit">sign in</button>
+            <button id="submit-btn" class="btn btn-primary" type="button">sign in</button>
         </div>
     </form>
 </section>
@@ -50,20 +51,20 @@
     </nav>
 </header>
 
-<!---------------------------------------- Aside Bar ------------------------------------------------------->
+<!---------------------------------------- Side Bar ------------------------------------------------------->
 
 <aside id="sidebar" class="position-fixed bottom-0 margin-auto bg-primary-subtle">
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item m-2">
             <div class="nav-link" >Dashboard</div>
         </li>
-        <li class="nav-item m-2 text-primary" id="student_sidebar_tab">
+        <li class="nav-item m-2 " id="customer_sidebar_tab">
             <div class="nav-link">Customer Management</div>
         </li>
-        <li class="nav-item m-2" id="course_sidebar_tab">
+        <li class="nav-item m-2" id="item_sidebar_tab">
             <div class="nav-link">Item Management</div>
         </li>
-        <li class="nav-item m-2">
+        <li class="nav-item m-2" id="order_sidebar_tab">
             <div class="nav-link">Order Management</div>
         </li>
     </ul>
@@ -82,29 +83,29 @@
                 <div class="row g-3">
 
                     <div class="col-md-3">
-                        <input type="text" id="cust_id" class="form-control" placeholder="Customer ID">
+                        <input type="text" id="customer_id" class="form-control" placeholder="Customer ID">
                     </div>
 
                     <div class="col-md-3">
-                        <input type="text" id="cust_name" class="form-control" placeholder="Customer Name">
+                        <input type="text" id="customer_name" class="form-control" placeholder="Customer Name">
                     </div>
 
                     <div class="col-md-3">
-                        <input type="text" id="cust_address" class="form-control" placeholder="Address">
+                        <input type="text" id="customer_address" class="form-control" placeholder="Address">
                     </div>
 
                     <div class="col-md-3">
-                        <input type="text" id="cust_contact" class="form-control" placeholder="Contact">
+                        <input type="text" id="customer_contact" class="form-control" placeholder="Contact">
                     </div>
 
                     <div class="col-12">
-                        <button id="save_customer_btn" type="submit" class="btn btn-success">
+                        <button id="save_customer_btn" type="button" class="btn btn-success">
                             SAVE
                         </button>
-                        <button id="delete_customer_btn" class="btn btn-danger">
+                        <button id="delete_customer_btn" type="button"  class="btn btn-danger">
                             DELETE
                         </button>
-                        <button id="update_customer_btn" class="btn btn-info">
+                        <button id="update_customer_btn" type="button" class="btn btn-info">
                             UPDATE
                         </button>
                         <button id="reset_customer_btn" type="reset" class="btn btn-warning">
@@ -139,6 +140,75 @@
     </div>
 </section>
 
+<!--------------------------------------- Item Management ------------------------------------------>
+
+<section id="item_content" class="content">
+    <div class="container mt-4">
+
+        <h3>Item Management</h3>
+
+        <form id="item_form">
+
+            <div class="card p-3 mb-4">
+                <div class="row g-3">
+
+                    <div class="col-md-3">
+                        <input type="text" id="item_id" class="form-control" placeholder="Item ID">
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" id="item_name" class="form-control" placeholder="Item Name">
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" id="item_quantity" class="form-control" placeholder="Quantity">
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" id="item_price" class="form-control" placeholder="Price">
+                    </div>
+
+                    <div class="col-12">
+                        <button id="save_item_btn" type="button" class="btn btn-success">
+                            SAVE
+                        </button>
+                        <button id="delete_item_btn" type="button"  class="btn btn-danger">
+                            DELETE
+                        </button>
+                        <button id="update_item_btn" type="button" class="btn btn-info">
+                            UPDATE
+                        </button>
+                        <button id="reset_item_btn" type="reset" class="btn btn-warning">
+                            RESET
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <!-- TABLE -->
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-0">
+                <table class="table table-hover align-middle mb-0 text-center">
+
+                    <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="item_table_body"></tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 <script src="assets/lib/jquery-4.0.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
