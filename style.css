@@ -117,3 +117,8 @@ body.sidebar-open .content {
     padding: 20px;
 }
 
+#order_content{
+    position: relative;
+    padding: 20px;
+}
+
