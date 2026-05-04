@@ -22,15 +22,27 @@ $('#menu_btn').on('click', function () {
 
 $('#customer_content').css('display', 'block');
 $('#item_content').css('display', 'none');
+$('#order_content').css('display', 'none');
 
 $('#customer_sidebar_tab').on('click', function () {
     $('#item_content').css('display', 'none');
+    $('#order_content').css('display', 'none');
+
     $('#customer_content').css('display', 'block');
 })
 
 $('#item_sidebar_tab').on('click', function () {
     $('#customer_content').css('display', 'none');
+    $('#order_content').css('display', 'none');
+
     $('#item_content').css('display', 'block');
+})
+
+$('#order_sidebar_tab').on('click', function () {
+    $('#customer_content').css('display', 'none');
+    $('#item_content').css('display', 'none');
+
+    $('#order_content').css('display', 'block');
 })
 
 
