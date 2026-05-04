@@ -88,11 +88,13 @@ $('#customer_delete_btn').on('click', function () {
                 .then((result) => {
                     if (result.isConfirmed) {
                         deleteCustomerData(id);
+
+                        cleanCustomerForm();
+                        Swal.fire({ icon: "success", title: "Customer deleted successfully!" });
+                        loadCustomerTbl();
                     }
             })
-    cleanCustomerForm();
-    Swal.fire({ icon: "success", title: "Customer deleted successfully!" });
-    loadCustomerTbl();
+
 });
 
 //------------------------- End: Customer Delete ------------------------------
