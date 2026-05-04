@@ -121,7 +121,6 @@
             </div>
         </form>
 
-        <!-- TABLE -->
         <div class="card shadow-sm border-0">
             <div class="card-body p-0">
                 <table class="table table-hover align-middle mb-0 text-center">
@@ -234,21 +233,13 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" id="order_customer_name" class="form-control" placeholder="Customer Name" readonly>
-                </div>
-
-                <div class="col-md-3">
                     <select id="order_item" class="form-control">
                         <option value="">Select Item</option>
                     </select>
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" id="order_item_name" class="form-control" placeholder="Item Name" >
-                </div>
-
-                <div class="col-md-3">
-                    <input type="text" id="order_item_price" class="form-control" placeholder="Price" >
+                    <input type="text" id="order_item_price" class="form-control" placeholder="Price" readonly >
                 </div>
 
                 <div class="col-md-3">
@@ -256,30 +247,11 @@
                 </div>
 
                 <div class="col-12">
-                    <button id="add_to_cart_btn" class="btn btn-primary">Add To Cart</button>
-                    <button id="place_order_btn" class="btn btn-success">Place Order</button>
+                    <button type="button" id="place_order_btn" class="btn btn-success">Place Order</button>
                 </div>
 
             </div>
         </form>
-
-        <div class="card p-3 mb-4">
-            <h5>Cart</h5>
-
-            <table class="table text-center">
-                <thead class="table-dark">
-                <tr>
-                    <th>Item</th>
-                    <th>Qty</th>
-                    <th>Price</th>
-                    <th>Total</th>
-                </tr>
-                </thead>
-                <tbody id="cart_table"></tbody>
-            </table>
-
-            <h4 id="total_display">Total: 0</h4>
-        </div>
 
         <div class="card p-3">
             <h5>Order History</h5>
@@ -290,6 +262,7 @@
                     <th>Order ID</th>
                     <th>Date</th>
                     <th>Customer</th>
+                    <th>Item</th>
                     <th>Total</th>
                 </tr>
                 </thead>

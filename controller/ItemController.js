@@ -44,32 +44,12 @@ $('#save_item_btn').on('click', function () {
     let qty = $('#item_quantity').val();
     let price = $('#item_price').val();
 
-    if (id === "") {
-        Swal.fire({ icon: "error", title: "Invalid ID!" });
-        return;
-    }
-
-    if (getItemDataById(id)) {
-        Swal.fire({ icon: "error", title: "ID already exists!" });
-        return;
-    }
-
-    if (name === "") {
-        Swal.fire({ icon: "error", title: "Invalid Name!" });
-        return;
-    }
-
-    if (qty === "" || isNaN(qty)) {
-        Swal.fire({ icon: "error", title: "Invalid Quantity!" });
-        return;
-    }
-
-    if (price === "" || isNaN(price)) {
-        Swal.fire({ icon: "error", title: "Invalid Price!" });
-        return;
-    }
-
-    addItemData(id, name, qty, price);
+    (id === "") ? Swal.fire({ icon: "error", title: "Invalid ID!" }) :
+        (getItemDataById(id)) ? Swal.fire({ icon: "error", title: "ID already exists!" }) :
+            (name === "") ? Swal.fire({ icon: "error", title: "Invalid Name!" }) :
+                (qty === "" || isNaN(qty) || Number(qty) <= 0) ? Swal.fire({ icon: "error", title: "Invalid Quantity!" }) :
+                    (price === "" || isNaN(price) || Number(price) <= 0) ? Swal.fire({ icon: "error", title: "Invalid Price!" }) :
+                        (addItemData(id, name, qty, price));
     cleanItemForm();
     loadItemTbl();
 
@@ -77,6 +57,10 @@ $('#save_item_btn').on('click', function () {
         icon: "success",
         title: "Item saved successfully!"
     });
+
+    if(window.refreshItemCombo){
+        window.refreshItemCombo();
+    }
 });
 //------------------------- End: Item Add ------------------------------
 

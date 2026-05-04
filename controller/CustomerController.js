@@ -46,6 +46,10 @@ $('#customer_save_btn').on('click', function () {
     cleanCustomerForm();
     Swal.fire({ icon: "success", title: "Customer saved successfully!"});
     loadCustomerTbl();
+
+    if (window.refreshCustomerCombo) {
+        window.refreshCustomerCombo();
+    }
 });
 //------------------------- End: Customer Add ------------------------------
 
@@ -98,3 +102,4 @@ $('#customer_delete_btn').on('click', function () {
 });
 
 //------------------------- End: Customer Delete ------------------------------
+

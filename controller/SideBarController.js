@@ -20,7 +20,7 @@ $('#menu_btn').on('click', function () {
     }
 });
 
-$('#customer_content').css('display', 'block');
+$('#customer_content').css('display', 'none');
 $('#item_content').css('display', 'none');
 $('#order_content').css('display', 'none');
 
