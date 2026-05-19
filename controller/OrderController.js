@@ -84,6 +84,14 @@ $('#place_order_btn').on('click', function () {
     let customer = getCustomerData().find(c => c.id === customerId);
     let item = getItemDataById(itemId);
 
+    if (qty > Number(item.quantity)) {
+        Swal.fire({
+            icon: "error",
+            title: "Not enough stock!"
+        });
+        return;
+    }
+
     if (!customer) {
         Swal.fire({ icon: "error", title: "Customer not found!" });
         return;
@@ -96,19 +104,28 @@ $('#place_order_btn').on('click', function () {
 
     let total = qty * item.price;
 
-    let order = [
-        {
-            itemId: item.id,
-            name: item.name,
-            qty: qty,
-            price: item.price,
-            total: total
-        }
-    ];
+    let order = [{itemId: item.id, name: item.name, qty: qty, price: item.price, total: total}];
 
-    addOrder(orderId, new Date().toISOString().split('T')[0], customerName, order, total);
+    addOrder(
+        orderId,
+        new Date().toISOString().split('T')[0],
+        customerName,
+        order,
+        total
+    );
 
+// deduct item quantity
+    item.quantity = Number(item.quantity) - Number(qty);
+    
     loadOrderHistory();
+
+    if (window.loadItemTbl) {
+        window.loadItemTbl();
+    }
+
+    if (window.refreshItemCombo) {
+        window.refreshItemCombo();
+    }
 
     Swal.fire({
         icon: "success",

@@ -11,7 +11,7 @@ submitButton.addEventListener('click', function () {
         if (password.value === Password) {
 
             $('#login-page').hide();
-            $('#customer_content').show();
+            $('#dashboard_content').show();
             $('#navbar').show();
 
         } else {

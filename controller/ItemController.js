@@ -120,3 +120,7 @@ $('#delete_item_btn').on('click', function () {
                 });
 
 });
+
+loadItemTbl();
+
+window.loadItemTbl = loadItemTbl;

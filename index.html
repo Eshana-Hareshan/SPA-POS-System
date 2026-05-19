@@ -15,12 +15,41 @@
 <!---------------------------------------- Login --------------------------------------------------------->
 <section id="login-page">
     <div class="left-side">
+        <div class="overlay"></div>
+
         <div class="login-content">
+            <h1>Ride Beyond Limits</h1>
+            <p>
+                Premium bikes, powerful machines, and the freedom of the road.
+                Welcome to the ultimate bike shop experience.
+            </p>
+
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fa-solid fa-motorcycle"></i>
+                    <span>Sport Bikes</span>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                    <span>Rider Gear</span>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>High Performance</span>
+                </div>
+            </div>
         </div>
     </div>
+
     <form class="login-form">
         <div class="top-text">
-            <h2 class="greet-msg">Welcome back <i class="fa-regular fa-handshake" style="color:black"></i></h2>
+            <h2 class="greet-msg">
+                Welcome back
+                <i class="fa-regular fa-handshake" style="color:black"></i>
+            </h2>
+
             <h1 class="login-topic">Sign In</h1>
         </div>
 
@@ -28,20 +57,25 @@
             <label for="user-name" class="form-label">Name</label>
             <input type="text" class="form-control" id="user-name">
         </div>
-        <label for="user-password" class="form-label">Password</label>
-        <input type="password" id="user-password" class="form-control" aria-describedby="passwordHelpBlock">
+
+        <div class="mb-3">
+            <label for="user-password" class="form-label">Password</label>
+            <input type="password" id="user-password" class="form-control">
+        </div>
+
         <div class="d-grid gap-2">
-            <button id="submit-btn" class="btn btn-primary" type="button">sign in</button>
+            <button id="submit-btn" class="btn btn-primary" type="button">
+                Sign In
+            </button>
         </div>
     </form>
 </section>
-
 <!---------------------------------------- Nav Bar ------------------------------------------------------->
 
 <header>
     <nav id="navbar" class="navbar bg-primary position-fixed w-100 top-0">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">POS</a>
+            <a class="navbar-brand" href="#">RideZone <i class="fa-solid fa-motorcycle" style="color: black;"></i></a>
             <button id="menu_btn" type="button" class="navbar-toggler">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -55,20 +89,126 @@
 
 <aside id="sidebar" class="position-fixed bottom-0 margin-auto bg-primary-subtle">
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-        <li class="nav-item m-2">
-            <div class="nav-link" >Dashboard</div>
+        <li class="nav-item m-2 " id="dashboard_sidebar_tab">
+            <button class="nav-link active">Dashboard </button>
         </li>
         <li class="nav-item m-2 " id="customer_sidebar_tab">
-            <div class="nav-link">Customer Management</div>
+            <button class="nav-link ">Customer Management</button>
         </li>
         <li class="nav-item m-2" id="item_sidebar_tab">
-            <div class="nav-link">Item Management</div>
+            <button class="nav-link">Item Management</button>
         </li>
         <li class="nav-item m-2" id="order_sidebar_tab">
-            <div class="nav-link">Order Management</div>
+            <button class="nav-link">Order Management</button>
         </li>
     </ul>
+    <!-- LOGOUT BUTTON -->
+
+    <div class="logout-section">
+
+        <button id="logout_btn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+
+    </div>
 </aside>
+
+<!---------------------------------------- Dash Board ------------------------------------------------------->
+
+<section id="dashboard_content" class="content">
+
+    <div class="container-fluid">
+
+        <div class="dashboard-header">
+            <h2>Dashboard</h2>
+            <p>Welcome to RideZone Management System</p>
+        </div>
+
+        <!-- TOP CARDS -->
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div class="card-info">
+                    <h3 id="total_customers">0</h3>
+                    <span>Total Customers</span>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-box"></i>
+                </div>
+
+                <div class="card-info">
+                    <h3 id="total_items">0</h3>
+                    <span>Total Items</span>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <div class="card-info">
+                    <h3 id="total_orders">0</h3>
+                    <span>Total Orders</span>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+
+                <div class="card-info">
+                    <h3 id="total_income">Rs. 0</h3>
+                    <span>Total Income</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RECENT ORDERS -->
+
+        <div class="recent-orders">
+
+            <div class="section-title">
+                <h4>Recent Orders</h4>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+
+                    <table class="table table-hover align-middle mb-0 text-center">
+
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Item</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="dashboard_order_table"></tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!--------------------------------------- Customer Management ------------------------------------------>
 
@@ -254,7 +394,7 @@
         </form>
 
         <div class="card p-3">
-            <h5>Order History</h5>
+            <h5>Order History</h5>U
 
             <table class="table text-center">
                 <thead class="table-dark">

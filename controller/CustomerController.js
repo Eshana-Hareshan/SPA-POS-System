@@ -36,15 +36,35 @@ $('#customer_save_btn').on('click', function () {
     let phone = $('#customer_phone_input').val();
     let address = $('#customer_address_input').val();
 
-    (id === "") ? Swal.fire({ icon: "error", title: "Invalid ID!" }) :
-        (getCustomerDataById(id)) ? Swal.fire({ icon: "error", title: "ID already exists!" }) :
-            (name === "") ? Swal.fire({ icon: "error", title: "Invalid Name!" }) :
-                (!check_nic(nic)) ? Swal.fire({ icon: "error", title: "Invalid NIC!" }) :
-                    (!check_phone(phone)) ? Swal.fire({ icon: "error", title: "Invalid Phone!" }) :
-                        (address === "") ? Swal.fire({ icon: "error", title: "Invalid Address!" }) :
-                            (addCustomerData(id, name, nic, phone, address));
+    let isValid =
+        (id === "") ? false :
+            (getCustomerDataById(id)) ? false :
+                (name === "") ? false :
+                    (!check_nic(nic)) ? false :
+                        (!check_phone(phone)) ? false :
+                            (address === "") ? false : true;
+
+    if (!isValid) {
+
+        (id === "") ? Swal.fire({ icon: "error", title: "Invalid ID!" }) :
+            (getCustomerDataById(id)) ? Swal.fire({ icon: "error", title: "ID already exists!" }) :
+                (name === "") ? Swal.fire({ icon: "error", title: "Invalid Name!" }) :
+                    (!check_nic(nic)) ? Swal.fire({ icon: "error", title: "Invalid NIC!" }) :
+                        (!check_phone(phone)) ? Swal.fire({ icon: "error", title: "Invalid Phone!" }) :
+                            Swal.fire({ icon: "error", title: "Invalid Address!" });
+
+        return;
+    }
+
+    addCustomerData(id, name, nic, phone, address);
+
     cleanCustomerForm();
-    Swal.fire({ icon: "success", title: "Customer saved successfully!"});
+
+    Swal.fire({
+        icon: "success",
+        title: "Customer saved successfully!"
+    });
+
     loadCustomerTbl();
 
     if (window.refreshCustomerCombo) {
